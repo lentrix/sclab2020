@@ -24,7 +24,7 @@
             <td>{{$lb->created_at->toDayDateTimeString()}}</td>
             <td>{{$lb->status}}</td>
             <td>
-                <a href='{{url("/labtests/$lb->id")}}' class="btn btn-primary btn-sm">...</a>
+                <a href='{{url("/labtests/$lb->id")}}' title="View Results" class="btn btn-primary btn-sm">...</a>
             </td>
         </tr>
         @endforeach
