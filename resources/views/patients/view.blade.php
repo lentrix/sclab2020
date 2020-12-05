@@ -95,7 +95,10 @@
                 <td>{{$lbt->physician}}</td>
                 <td>{{$lbt->med_tech}}</td>
                 <td class="text-center">
-                    <a href="{{url('/labtests/' . $lbt->id)}}" class="btn btn-primary btn-sm">...</a>
+                    <a href="{{url('/labtests/' . $lbt->id)}}"
+                            title="Open Lab Test" class="btn btn-primary btn-sm">
+                        <i class="fas fa-door-open"></i>
+                    </a>
                 </td>
             </tr>
 

@@ -26,7 +26,9 @@
                         <td>{{$p->fname}}</td>
                         <td>{{$p->address}}</td>
                         <td class="text-center">
-                            <a href="{{url('/patients/' . $p->id)}}" class="btn btn-primary btn-sm" title="View patient">...</a>
+                            <a href="{{url('/patients/' . $p->id)}}" class="btn btn-primary btn-sm" title="View patient">
+                                <i class="fas fa-door-open"></i>
+                            </a>
                         </td>
                     </tr>
                 @endforeach

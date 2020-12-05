@@ -12,7 +12,7 @@
             <th>Physician</th>
             <th>Date & Time</th>
             <th>Status</th>
-            <th>...</th>
+            <th class="text-center">...</th>
         </tr>
     </thead>
     <tbody>
@@ -23,8 +23,16 @@
             <td>{{$lb->physician}}</td>
             <td>{{$lb->created_at->toDayDateTimeString()}}</td>
             <td>{{$lb->status}}</td>
-            <td>
-                <a href='{{url("/labtests/$lb->id")}}' title="View Results" class="btn btn-primary btn-sm">...</a>
+            <td class="text-center">
+                <a href='{{url("/labtests/$lb->id")}}' title="View Results" class="btn btn-primary btn-sm">
+                    <i class="fas fa-door-open"></i>
+                </a>
+                @if(auth()->user()->role=="medtech")
+                <a href="{{url('/labtests/edit-result/' . $lb->id)}}"
+                        title="Edit Results" class="btn btn-success btn-sm">
+                    <i class="fas fa-edit"></i>
+                </a>
+                @endif
             </td>
         </tr>
         @endforeach
