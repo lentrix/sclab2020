@@ -10,20 +10,28 @@
             @auth
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/dashboard')}}">Home</a>
+                    <a class="nav-link" href="{{url('/dashboard')}}">
+                        <i class="fas fa-home"></i> Home
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/patients')}}">Patients</a>
+                    <a class="nav-link" href="{{url('/patients')}}">
+                        <i class="fas fa-users"></i> Patients
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Consultations</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-clipboard"></i> Consultations
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/labtests')}}">Lab Tests</a>
+                    <a class="nav-link" href="{{url('/labtests')}}">
+                        <i class="fas fa-tasks"></i> Lab Tests
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownDataset" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Data Set
+                        <i class="fas fa-table"></i> Data Set
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownDataset">
                         <a class="dropdown-item" href="{{url('/templates')}}">Test Templates</a>
@@ -32,7 +40,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        [<span class="upper">{{auth()->user()->username}}</span>]
+                        <i class="fas fa-user"></i> <span class="upper">{{auth()->user()->username}}</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{url('/profile')}}">Profile</a>
