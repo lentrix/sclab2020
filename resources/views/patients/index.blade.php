@@ -12,7 +12,7 @@
     <div class="col-md-9">
         <table class="table table-bordered table-striped">
             <thead>
-                <tr class="bg-primary text-white">
+                <tr class="bg-info text-white">
                     <th>Last Name</th>
                     <th>First Name</th>
                     <th>Address</th>
@@ -26,7 +26,7 @@
                         <td>{{$p->fname}}</td>
                         <td>{{$p->address}}</td>
                         <td class="text-center">
-                            <a href="{{url('/patients/' . $p->id)}}" class="btn btn-primary btn-sm" title="View patient">
+                            <a href="{{url('/patients/' . $p->id)}}" class="btn btn-info btn-sm" title="View patient">
                                 <i class="fas fa-door-open"></i>
                             </a>
                         </td>
@@ -37,7 +37,7 @@
     </div>
     <div class="col-md-3">
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active">
+            <a href="#" class="list-group-item list-group-item-action bg-info text-white">
                 Patient Menu
             </a>
             <a href="{{url('/patients/create')}}" class="list-group-item list-group-item-action">Create New</a>

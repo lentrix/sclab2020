@@ -6,7 +6,7 @@
 
 <table class="table table-bordered">
     <thead>
-        <tr class="bg-primary text-white">
+        <tr class="bg-info text-white">
             <th>Lab Test</th>
             <th>Patient</th>
             <th>Physician</th>
@@ -24,7 +24,7 @@
             <td>{{$lb->created_at->toDayDateTimeString()}}</td>
             <td>{{$lb->status}}</td>
             <td class="text-center">
-                <a href='{{url("/labtests/$lb->id")}}' title="View Results" class="btn btn-primary btn-sm">
+                <a href='{{url("/labtests/$lb->id")}}' title="View Results" class="btn btn-info btn-sm">
                     <i class="fas fa-door-open"></i>
                 </a>
                 @if(auth()->user()->role=="medtech")

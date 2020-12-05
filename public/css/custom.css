@@ -42,3 +42,13 @@ h1 {
 .result-table th {
     width: 130px;
 }
+
+.nav-link {
+    text-align: center;
+}
+
+.nav-link>i {
+    display: block;
+    clear: both;
+    font-size: 1.3em;
+}

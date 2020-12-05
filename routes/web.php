@@ -26,6 +26,13 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/labtests/{labtest}', 'LabTestController@show');
     Route::get('/labtests', 'LabTestController@index');
     Route::post('/labtests', 'LabTestController@store');
+
+    Route::patch('/profile/{user}', 'UserController@update');
+    Route::get('/profile/{user}', 'UserController@show');
+    Route::get('/profile/edit/{user}', 'UserController@edit');
+    Route::get('/profile/change-password/{user}', 'UserController@changePasswordForm');
+    Route::patch('/profile/change-password/{user}', 'UserController@changePassword');
+
 });
 
 Route::middleware(['auth', 'medtech'])->group(function(){

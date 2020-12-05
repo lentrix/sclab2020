@@ -42,10 +42,11 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user"></i> <span class="upper">{{auth()->user()->username}}</span>
                     </a>
+                    <?php $uid = auth()->user()->id ?>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{url('/profile')}}">Profile</a>
-                        <a class="dropdown-item" href="{{url('/change-password')}}">Change Password</a>
-
+                        <a class="dropdown-item" href="{{url('/profile/' . $uid)}}">Profile</a>
+                        <a class="dropdown-item" href="{{url('/profile/change-password/' . $uid)}}">Change Password</a>
+                        <div class="divider" role="separator"></div>
                         <a class="dropdown-item" href="{{url('/logout')}}">Logout</a>
                     </div>
                 </li>
