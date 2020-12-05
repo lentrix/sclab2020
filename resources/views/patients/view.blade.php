@@ -71,6 +71,43 @@
 
 <hr>
 <h2>Patient History</h2>
-<p>patient history goes here...</p>
+
+@if(count($patient->labTests)>0)
+
+    <h3>Laboratory Tests</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr class="bg-primary text-white">
+                <th>Date &amp; Time</th>
+                <th>Lab Test Taken</th>
+                <th>Physician</th>
+                <th>Medical Technologist</th>
+                <th class="text-center">...</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($patient->labTests as $lbt)
+
+            <tr>
+                <td>{{$lbt->created_at->toDateTimeString()}}</td>
+                <td>{{$lbt->test_name}}</td>
+                <td>{{$lbt->physician}}</td>
+                <td>{{$lbt->med_tech}}</td>
+                <td class="text-center">
+                    <a href="{{url('/labtests/' . $lbt->id)}}" class="btn btn-primary btn-sm">...</a>
+                </td>
+            </tr>
+
+            @endforeach
+        </tbody>
+    </table>
+@else
+    <div class="card">
+        <div class="card-body bg-info">
+            No laboratory test recorded for this patient yet.
+        </div>
+    </div>
+@endif
 
 @stop
