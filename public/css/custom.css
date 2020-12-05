@@ -37,3 +37,8 @@ h1 {
 .caps {
     text-transform: capitalize;
 }
+
+
+.result-table th {
+    width: 130px;
+}

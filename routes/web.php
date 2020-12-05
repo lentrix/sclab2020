@@ -23,7 +23,8 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/patients/search', 'PatientController@search');
 
     Route::get('/labtests/create/{patient}', 'LabTestController@create');
-    Route::get('/labtests/{status}', 'LabTestController@index');
+    Route::get('/labtests/{labtest}', 'LabTestController@show');
+    Route::get('/labtests', 'LabTestController@index');
     Route::post('/labtests', 'LabTestController@store');
 });
 

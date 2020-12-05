@@ -23,7 +23,7 @@
         @yield('content')
         <br>
 
-        <footer class="bg-dark">
+        <footer class="bg-dark d-print-none">
             Copyright &copy; 2020 {{env('APP_NAME')}}. All rights reserved.
         </footer>
     </div>

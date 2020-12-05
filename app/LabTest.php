@@ -11,4 +11,8 @@ class LabTest extends Model
     public function patient() {
         return $this->belongsTo('App\Patient');
     }
+
+    public function items() {
+        return $this->hasMany('App\TestItem');
+    }
 }

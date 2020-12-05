@@ -11,14 +11,16 @@ use App\LbtTemplate;
 class LabTestController extends Controller
 {
 
-    public function index($status) {
-        $labTests = LabTest::where('status',$status)
-            ->with('patient')
-            ->orderBy('created_at')->get();
+    public function index() {
+        $dateNow = date('Y-m-d');
+        $from = $dateNow . " 00:00:00";
+        $to = $dateNow . "23:59:59";
+
+        $today = LabTest::whereBetween('created_at',[$from,$to])
+            ->orWhere('status', 'pending')->get();
 
         return view('lab_tests.index', [
-            'status' => $status,
-            'labTests' => $labTests
+            'today' => $today
         ]);
     }
 
@@ -39,7 +41,7 @@ class LabTestController extends Controller
 
         $tmplt = LbtTemplate::find($request['template_id']);
 
-        LabTest::create([
+        $lab = LabTest::create([
             'patient_id' => $request['patient_id'],
             'test_name' => $tmplt->name,
             'amount' => $tmplt->price,
@@ -47,6 +49,18 @@ class LabTestController extends Controller
             'pathologist' => $request['pathologist'],
         ]);
 
-        return redirect("/labtests/pending")->with('Info','New Lab Test pending.');
+        foreach($tmplt->items as $item) {
+            \App\TestItem::create([
+                'lab_test_id' => $lab->id,
+                'item' => $item->test,
+                'normal' => $item->normal,
+            ]);
+        }
+
+        return redirect("/labtests")->with('Info','New Lab Test pending.');
+    }
+
+    public function show(LabTest $labTest) {
+        return view('lab_tests.view', ['labTest'=>$labTest->first()]);
     }
 }
