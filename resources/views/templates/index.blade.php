@@ -20,7 +20,10 @@
                     <td>{{$tpl->name}}</td>
                     <td>{{$tpl->price}}</td>
                     <td class="text-center">
-                        <a href='{{url("/templates/$tpl->id")}}' class="btn btn-primary btn-sm">...</a>
+                        <a href='{{url("/templates/$tpl->id")}}'
+                                title="Open Lab Test Template" class="btn btn-primary btn-sm">
+                            <i class="fas fa-door-open"></i>
+                        </a>
                     </td>
                 </tr>
                 @endforeach
