@@ -24,9 +24,12 @@
             <td>{{$lb->created_at->toDayDateTimeString()}}</td>
             <td>{{$lb->status}}</td>
             <td class="text-center">
+                @if($lb->status=="available")
                 <a href='{{url("/labtests/$lb->id")}}' title="View Results" class="btn btn-info btn-sm">
                     <i class="fas fa-door-open"></i>
                 </a>
+                @endif
+
                 @if(auth()->user()->role=="medtech")
                 <a href="{{url('/labtests/edit-results/' . $lb->id)}}"
                         title="Edit Results" class="btn btn-success btn-sm">

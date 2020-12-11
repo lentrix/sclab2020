@@ -17,7 +17,7 @@ class LabTestController extends Controller
         $to = $dateNow . "23:59:59";
 
         $today = LabTest::whereBetween('created_at',[$from,$to])
-            ->orWhere('status', 'pending')->get();
+            ->orWhereIn('status', ['pending','on-going'])->get();
 
         return view('lab_tests.index', [
             'today' => $today
@@ -60,11 +60,15 @@ class LabTestController extends Controller
         return redirect("/labtests")->with('Info','New Lab Test pending.');
     }
 
-    public function show(LabTest $labTest) {
-        return view('lab_tests.view', ['labTest'=>$labTest->first()]);
+    public function show(LabTest $labtest) {
+        return view('lab_tests.view', ['labTest'=>$labtest]);
     }
 
     public function editResults(LabTest $labtest) {
+        if($labtest->status=="pending") {
+            $labtest->update(['status'=>'on-going']);
+        }
+
         return view('lab_tests.edit', compact('labtest'));
     }
 
@@ -76,6 +80,16 @@ class LabTestController extends Controller
             }
         }
 
-        return redirect("/labtests/$labtest->id")->with('Info', 'Laboratory test results updated.');
+        $labtest->update([
+            'remarks'=>$request['remarks'],
+            'status' =>$request['status'],
+            'med_tech' => auth()->user()->fullname
+        ]);
+
+        if($labtest->status=="available") {
+            return redirect("/labtests/$labtest->id")->with('Info', 'Laboratory test results updated.');
+        }else {
+            return redirect()->back()->with('Info', 'Laboratory test results updated.');
+        }
     }
 }

@@ -50,11 +50,32 @@
                 @endforeach
             </tbody>
         </table>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {!! Form::label("remarks", "Remarks") !!}
+                    {!! Form::text("remarks", $labtest->remarks, ['class'=>'form-control']) !!}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {!! Form::label("status", "Status") !!}
+                    {!! Form::select("status", [
+                        'pending' => 'Pending',
+                        'on-going' => 'On-going',
+                        'available' => 'Available'
+                    ], $labtest->status, ["class"=>'form-control']) !!}
+                </div>
+            </div>
+        </div>
+
         <div class="form-group">
             <button class="btn btn-primary">
                 Save Results
             </button>
         </div>
+
         {!! Form::close() !!}
     </div>
 </div>
