@@ -63,4 +63,19 @@ class LabTestController extends Controller
     public function show(LabTest $labTest) {
         return view('lab_tests.view', ['labTest'=>$labTest->first()]);
     }
+
+    public function editResults(LabTest $labtest) {
+        return view('lab_tests.edit', compact('labtest'));
+    }
+
+    public function updateResults(LabTest $labtest, Request $request) {
+        foreach($request['item'] as $id=>$result) {
+            $item = \App\TestItem::find($id);
+            if($item) {
+                $item->update(['result'=>$result]);
+            }
+        }
+
+        return redirect("/labtests/$labtest->id")->with('Info', 'Laboratory test results updated.');
+    }
 }

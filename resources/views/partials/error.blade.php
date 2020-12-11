@@ -1,5 +1,5 @@
 @if(count($errors)>0)
-    <div class="card">
+    <div class="card d-print-none">
         <div class="card-body bg-danger text-white">
             <ul>
                 @foreach($errors->all() as $err)
@@ -9,7 +9,7 @@
         </div>
     </div>
 @elseif($Error = session('Error'))
-    <div class="card">
+    <div class="card d-print-none">
         <div class="card-body bg-danger text-white">
             {{$Error}}
         </div>

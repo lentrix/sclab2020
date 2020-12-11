@@ -28,7 +28,7 @@
                     <i class="fas fa-door-open"></i>
                 </a>
                 @if(auth()->user()->role=="medtech")
-                <a href="{{url('/labtests/edit-result/' . $lb->id)}}"
+                <a href="{{url('/labtests/edit-results/' . $lb->id)}}"
                         title="Edit Results" class="btn btn-success btn-sm">
                     <i class="fas fa-edit"></i>
                 </a>
