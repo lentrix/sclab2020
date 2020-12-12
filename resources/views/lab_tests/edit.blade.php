@@ -24,6 +24,9 @@
                 <td>{{$labtest->physician}}</td>
             </tr>
         </table>
+        <button class="btn btn-info" type="button">
+            Update Details
+        </button>
     </div>
     <div class="col-md-8">
         <h3>Individual Test Items</h3>
