@@ -16,15 +16,13 @@ class CreateLabTestsTable extends Migration
         Schema::create('lab_tests', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('patient_id')->unsigned();
-            $table->string("test_name");
-            $table->float('amount');
-            $table->string('physician')->nullable();
-            $table->string('med_tech')->nullable();
+            $table->string('formal_name');
+            $table->string('physician');
             $table->string('pathologist')->nullable();
-            $table->string('remarks')->nullable();
-            $table->string('status')->default('pending'); //pending, on-going, available
+            $table->string('med_tech')->nullable();
+            $table->mediumText('data')->nullable();
+            $table->string('status'); //pending, on-going, available
             $table->timestamps();
-            $table->foreign('patient_id')->references('id')->on('patients');
         });
     }
 

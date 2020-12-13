@@ -6,13 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class LabTest extends Model
 {
-    protected $fillable = ['patient_id', 'test_name', 'amount', 'physician', 'pathologist', 'remarks', 'status', 'med_tech'];
+    protected $fillable = ['patient_id', 'physician', 'pathologist', 'med_tech', 'formal_name', 'status', 'data'];
 
     public function patient() {
         return $this->belongsTo('App\Patient');
-    }
-
-    public function items() {
-        return $this->hasMany('App\TestItem');
     }
 }

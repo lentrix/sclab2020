@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Patient;
 use App\LabTest;
-use App\LbtTemplate;
-
+use App\LabTestBlueprint;
+use App\Patient;
+use Illuminate\Http\Request;
 
 class LabTestController extends Controller
 {
-
-    public function index() {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         $dateNow = date('Y-m-d');
         $from = $dateNow . " 00:00:00";
         $to = $dateNow . "23:59:59";
@@ -25,71 +29,88 @@ class LabTestController extends Controller
     }
 
     /**
-     * Create a lab test from patient view
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function create(Patient $patient) {
+    public function create(Patient $patient)
+    {
         return view('lab_tests.create', compact('patient'));
     }
 
-    public function store(Request $request) {
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $this->validate($request, [
             'patient_id' => 'required|numeric',
-            'template_id' => 'required|numeric',
+            'formal_name' => 'required',
             'physician' => 'required',
-            'pathologist' => 'required'
         ]);
 
-        $tmplt = LbtTemplate::find($request['template_id']);
+        // dd(\App\LabTestBlueprint::blueprint()[$request['formal_name']]);
 
-        $lab = LabTest::create([
+        $labTest = LabTest::create([
             'patient_id' => $request['patient_id'],
-            'test_name' => $tmplt->name,
-            'amount' => $tmplt->price,
+            'formal_name' => $request['formal_name'],
             'physician' => $request['physician'],
             'pathologist' => $request['pathologist'],
+            'med_tech' => auth()->user()->fullname,
+            'status' => 'pending',
+            'data' => json_encode(\App\LabTestBlueprint::blueprint()[$request['formal_name']])
         ]);
 
-        foreach($tmplt->items as $item) {
-            \App\TestItem::create([
-                'lab_test_id' => $lab->id,
-                'item' => $item->test,
-                'normal' => $item->normal,
-            ]);
-        }
+        $patient = Patient::find($request['patient_id']);
 
-        return redirect("/labtests")->with('Info','New Lab Test pending.');
+        return redirect("/labtests")->with('Info', "New laboratory request have been created for $patient->name");
     }
 
-    public function show(LabTest $labtest) {
-        return view('lab_tests.view', ['labTest'=>$labtest]);
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\LabTest  $labTest
+     * @return \Illuminate\Http\Response
+     */
+    public function show(LabTest $labTest)
+    {
+        //
     }
 
-    public function editResults(LabTest $labtest) {
-        if($labtest->status=="pending") {
-            $labtest->update(['status'=>'on-going']);
-        }
-
-        return view('lab_tests.edit', compact('labtest'));
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\LabTest  $labTest
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(LabTest $labTest)
+    {
+        //
     }
 
-    public function updateResults(LabTest $labtest, Request $request) {
-        foreach($request['item'] as $id=>$result) {
-            $item = \App\TestItem::find($id);
-            if($item) {
-                $item->update(['result'=>$result]);
-            }
-        }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\LabTest  $labTest
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, LabTest $labTest)
+    {
+        //
+    }
 
-        $labtest->update([
-            'remarks'=>$request['remarks'],
-            'status' =>$request['status'],
-            'med_tech' => auth()->user()->fullname
-        ]);
-
-        if($labtest->status=="available") {
-            return redirect("/labtests/$labtest->id")->with('Info', 'Laboratory test results updated.');
-        }else {
-            return redirect()->back()->with('Info', 'Laboratory test results updated.');
-        }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\LabTest  $labTest
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(LabTest $labTest)
+    {
+        //
     }
 }

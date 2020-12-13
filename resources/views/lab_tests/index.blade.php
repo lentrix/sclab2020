@@ -18,7 +18,7 @@
     <tbody>
         @foreach($today as $lb)
         <tr>
-            <td>{{$lb->test_name}}</td>
+            <td style="text-transform:capitalize">{{$lb->formal_name}}</td>
             <td>{{$lb->patient->name}}</td>
             <td>{{$lb->physician}}</td>
             <td>{{$lb->created_at->toDayDateTimeString()}}</td>

@@ -26,8 +26,8 @@
     <div class="col-md-4">
 
         <div class="form-group">
-            {!! Form::label('template_id', "Lab Test Template") !!}
-            {!! Form::select('template_id', \App\LbtTemplate::list(), null, ['class'=>'form-control','placeholder'=>'Select Lab Test']) !!}
+            {!! Form::label('formal_name', "Lab Test Desired") !!}
+            {!! Form::select('formal_name', \App\LabTestBlueprint::labsList(), null, ['class'=>'form-control','placeholder'=>'Select Lab Test']) !!}
         </div>
 
         <div class="form-group">
