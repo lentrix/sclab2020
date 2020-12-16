@@ -44,6 +44,8 @@ Route::middleware(['auth', 'medtech'])->group(function(){
     Route::get('templates/{template}', 'TemplateController@show');
     Route::put('templates/{template}', 'TemplateController@update');
 
+    Route::patch('/labtests/results/{labtest}', 'LabTestController@updateResults');
     Route::patch('/labtests/{labtest}', 'LabTestController@updateResults');
+    Route::get('/labtests/{labtest}', 'LabTestController@show');
     Route::get('/labtests/edit-results/{labtest}', 'LabTestController@editResults');
 });

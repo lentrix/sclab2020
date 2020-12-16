@@ -75,9 +75,10 @@ class LabTestController extends Controller
      * @param  \App\LabTest  $labTest
      * @return \Illuminate\Http\Response
      */
-    public function show(LabTest $labTest)
+    public function show(LabTest $labtest)
     {
-        //
+        $view = json_decode($labtest->data)[0]->view;
+        return view('lab_tests.results.' . $view, compact('labtest'));
     }
 
     /**
@@ -112,5 +113,24 @@ class LabTestController extends Controller
     public function destroy(LabTest $labTest)
     {
         //
+    }
+
+    public function editResults(LabTest $labtest) {
+        $filename = str_replace(" ", "_", $labtest->formal_name);
+        return view('lab_tests.forms.' . $filename, compact('labtest'));
+    }
+
+    public function updateResults(LabTest $labtest, Request $request) {
+        $data = json_decode($labtest->data);
+
+        for($i=1; $i<count($data); $i++) {
+            $data[$i]->result = $request['item'][$i];
+        }
+
+        $labtest->update([
+            'data' => $data
+        ]);
+
+        return redirect("/labtests/$labtest->id")->with('Info','Laboratory Results have been updated.');
     }
 }

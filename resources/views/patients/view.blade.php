@@ -91,7 +91,7 @@
 
             <tr>
                 <td>{{$lbt->created_at->toDateTimeString()}}</td>
-                <td>{{$lbt->test_name}}</td>
+                <td style="text-transform: capitalize">{{$lbt->formal_name}}</td>
                 <td>{{$lbt->physician}}</td>
                 <td>{{$lbt->med_tech}}</td>
                 <td class="text-center">
