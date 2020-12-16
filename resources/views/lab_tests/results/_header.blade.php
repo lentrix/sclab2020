@@ -16,3 +16,18 @@
         DOH License No.: GCL-7-2017-173-P
     </div>
 </div>
+
+<br>
+<table class="table table-bordered result-table">
+    <tr>
+        <th>Patient Name:</th><td colspan="3">{{$labtest->patient->name}}</td>
+        <th>Physician:</th><td>{{$labtest->physician}}</td>
+    </tr>
+    <tr>
+        <th>Age:</th><td>{{$labtest->patient->bdate->age}} Y.O.</td>
+        <th>Sex:</th><td>{{$labtest->patient->gender}}</td>
+        <th>Date & Time:</th><td>{{$labtest->created_at->toDayDateTimeString()}}</td>
+    </tr>
+</table>
+
+<h1 style="text-align:center; text-transform: uppercase">{{ \App\LabTestBlueprint::labsList()[$labtest->formal_name] }}</h1>

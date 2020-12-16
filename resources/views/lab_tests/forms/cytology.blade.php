@@ -20,19 +20,32 @@
                     {!! Form::label("item[$i]", $data[$i]->name) !!}
                 </td>
                 <td>
-                    @if($data[$i]->value==' ')
-                        {!! Form::text("item[$i]", $data[$i]->value, ['class'=>'form-control']) !!}
+                    @if($data[$i]->result!='1' && $data[$i]->result!='0')
+                        {!! Form::text("item[$i]", $data[$i]->result, ['class'=>'form-control']) !!}
                     @else
-                        {!! Form::checkbox("item[$i]", 1, $data[$i]->value, ["id"=>"item[$i]"]) !!}
+                        {!! Form::checkbox("item[$i]", 1, $data[$i]->result, ["id"=>"item[$i]"]) !!}
                     @endif
                 </td>
             </tr>
             @endfor
         </table>
         <div class="form-group">
+            Status:
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {!! Form::radio("status", "pending", $labtest->status=='pending', ["id"=>'pending']) !!}
+            {!! Form::label("pending", "Pending") !!}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {!! Form::radio("status", "on-going", $labtest->status=='on-going', ["id"=>'on-going']) !!}
+            {!! Form::label("on-going", "On-going") !!}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {!! Form::radio("status", "available", $labtest->status=='available', ["id"=>'available']) !!}
+            {!! Form::label("available", "Available") !!}
+        </div>
+        <div class="form-group">
             <button class="btn btn-primary">
                 Save Changes
             </button>
+            <a href='{{url("/labtests/reset/$labtest->id")}}' class="btn btn-info">Reset</a>
         </div>
         {!! Form::close() !!}
     </div>

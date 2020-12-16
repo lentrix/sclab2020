@@ -18,7 +18,7 @@ class LabTestController extends Controller
     {
         $dateNow = date('Y-m-d');
         $from = $dateNow . " 00:00:00";
-        $to = $dateNow . "23:59:59";
+        $to = $dateNow . " 23:59:59";
 
         $today = LabTest::whereBetween('created_at',[$from,$to])
             ->orWhereIn('status', ['pending','on-going'])->get();
@@ -124,13 +124,21 @@ class LabTestController extends Controller
         $data = json_decode($labtest->data);
 
         for($i=1; $i<count($data); $i++) {
-            $data[$i]->result = $request['item'][$i];
+            $data[$i]->result = isset($request['item'][$i]) ? $request['item'][$i] : '0';
         }
 
         $labtest->update([
-            'data' => $data
+            'data' => $data,
+            'status' => $request['status']
         ]);
 
         return redirect("/labtests/$labtest->id")->with('Info','Laboratory Results have been updated.');
+    }
+
+    public function resetResults(LabTest $labtest) {
+        $labtest->update([
+            'data' => \App\LabTestBlueprint::blueprint()[$labtest->formal_name]
+        ]);
+        return redirect()->back()->with('Info','The results have been reset.');
     }
 }

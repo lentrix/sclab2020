@@ -4,21 +4,6 @@
 
 @include("lab_tests.results._header")
 
-<br>
-<table class="table table-bordered result-table">
-    <tr>
-        <th>Patient Name:</th><td colspan="3">{{$labtest->patient->name}}</td>
-        <th>Physician:</th><td>{{$labtest->physician}}</td>
-    </tr>
-    <tr>
-        <th>Age:</th><td>{{$labtest->patient->bdate->age}} Y.O.</td>
-        <th>Sex:</th><td>{{$labtest->patient->gender}}</td>
-        <th>Date & Time:</th><td>{{$labtest->created_at->toDayDateTimeString()}}</td>
-    </tr>
-</table>
-
-<h2 style="text-align:center">{{$labtest->test_name}}</h2>
-
 <table class="table table-bordered">
     <thead>
         <tr>
