@@ -50,6 +50,9 @@
             <button class="btn btn-primary">
                 Save Results
             </button>
+            <a href='{{url("/labtests/reset/$labtest->id")}}' class="btn btn-info">
+                Reset
+            </a>
         </div>
 
         {!! Form::close() !!}
