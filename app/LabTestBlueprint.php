@@ -79,7 +79,7 @@ class LabTestBlueprint extends Model
                 ['name'=>'Trichuris', 'result'=>''],
                 ['name'=>'Hoolworm', 'result'=>''],
                 ['name'=>'Others', 'result'=>''],
-                ['name'=>'Entamoeba', 'result'=>''],
+                ['name'=>'Entamoeba:', 'result'=>''],
                 ['name'=>'Trophozoites', 'result'=>''],
                 ['name'=>'Cysts', 'result'=>''],
                 ['name'=>'Trichomonas sp', 'result'=>''],
@@ -87,7 +87,7 @@ class LabTestBlueprint extends Model
                 ['name'=>'Pus Cells', 'result'=>''],
                 ['name'=>'RBC', 'result'=>''],
                 ['name'=>'Bacteria', 'result'=>''],
-                ['name'=>'Fat Gobuless', 'result'=>''],
+                ['name'=>'Fat Gobules', 'result'=>''],
                 ['name'=>'Test for occult blood', 'result'=>''],
                 ['name'=>'REMARKS', 'result'=>''],
             ]

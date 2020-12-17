@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div style="font-size: 1.3em">
+<div class="page">
 
 @include('lab_tests.results._header')
 

@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class="page">
+
 @include("lab_tests.results._header")
 
 <table class="table table-bordered">
@@ -41,4 +43,6 @@
     </tr>
 </table>
 
+
+</div>
 @stop
