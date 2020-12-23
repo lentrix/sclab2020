@@ -1,9 +1,6 @@
-
 @extends('base')
 
 @section('content')
-
-<h1>Cytology Results Entry</h1>
 
 <?php $data = json_decode($labtest->data); ?>
 
@@ -13,30 +10,32 @@
     </div>
     <div class="col-md-8">
         {!! Form::open(['url'=>"/labtests/results/$labtest->id", 'method'=>'patch']) !!}
+
         <table class="table table-striped">
             @for($i=1; $i<count($data); $i++)
+
                 @if(isset($data[$i]->header))
                     <tr>
-                        <td colspan="2" style="font-size: 1.2em; font-weight: bold">
+                        <td colspan="3" style="font-size: 1.2em; font-weight: bold">
                             {{$data[$i]->header}}
                         </td>
                     </tr>
                 @endif
+
                 <tr>
+                    <th>{!! Form::label("item[$i]", $data[$i]->name) !!}</th>
                     <td>
-                        {!! Form::label("item[$i]", $data[$i]->name) !!}
+                        {!! Form::text("item[$i]", $data[$i]->result, ["class"=>'form-control']) !!}
                     </td>
                     <td>
-                        @if($data[$i]->result!='1' && $data[$i]->result!='0')
-                            {!! Form::text("item[$i]", $data[$i]->result, ['class'=>'form-control']) !!}
-                        @else
-                            {!! Form::checkbox("item[$i]", 1, $data[$i]->result, ["id"=>"item[$i]"]) !!}
-                        @endif
+                        {{$data[$i]->unit}}
                     </td>
                 </tr>
+
             @endfor
         </table>
         @include('lab_tests.forms._bottom')
+
         {!! Form::close() !!}
     </div>
 </div>

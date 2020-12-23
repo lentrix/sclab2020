@@ -90,6 +90,117 @@ class LabTestBlueprint extends Model
                 ['name'=>'Fat Gobules', 'result'=>'&nbsp;'],
                 ['name'=>'Test for occult blood', 'result'=>'&nbsp;'],
                 ['name'=>'REMARKS', 'result'=>'&nbsp;'],
+            ],
+            "ecg" => [
+                ['view'=>'ecg'],
+                ['name'=>'remarks', 'result'=>'&nbsp;'],
+                ['name'=>'Cardiologist/Internist', 'result'=>'&nbsp;']
+            ],
+            "hematology" => [
+                ['view'=>'hematology'],
+                [
+                    'name'=>'WBC',
+                    'normal'=>'Newborn: 10.0 - 30.0 x10^9/L<br>1 year old: 6.0 - 17.0 x10^9/L<br>Adult: 4.5 - 11.0x10^9/L',
+                    'result'=>'&nbsp;',
+                    'unit'=>'x10^9/L',
+                    'header'=>'COMPLETE BLOOD COUNT'
+                ],
+                [
+                    'name'=>'RBC',
+                    'normal'=>'Newborn: 5.0 - 6.5 x 10^12/L<br>1 year old: 3.5 - 5.1 x 10^12/L<br>Female: 3.6 - 5.6 x 10^12/L<br>Male: 4.2 - 6.0 x 10^12/L',
+                    'unit'=>'x10^12/L',
+                    'result'=>'&nbsp;'
+                ],
+                [
+                    'name'=>'Hemoglobin',
+                    'normal'=>'Birth: 150-200 g/L<br>Female: 120-160 g/L<br>2 months: 90-140 g/L    Male: 130-180 g/L<br>10 years: 120-150 g/L',
+                    'result'=>'&nbsp;',
+                    'unit'=>'g/L',
+                ],
+                [
+                    'name'=>'Hematocrit',
+                    'normal'=>'Birth: 0.45 - 0.60%    Female: 0.36 - 0.48%<br>1 year: 0.27 - 0.44%    Male: 0.40 - 0.55%',
+                    'result'=>'&nbsp;',
+                    'unit'=>'%'
+                ],
+                [
+                    'name'=>'Platelet',
+                    'normal'=>'150 - 450 /cumm.',
+                    'result'=>'&nbsp;',
+                    'unit'=>'/cumm.'
+                ],
+                [
+                    'name'=>'Retic. count',
+                    'normal'=>'Newborn: 2.5 - 6.5%',
+                    'result'=>'&nbsp;',
+                    'unit'=>'%'
+                ],
+                [
+                    'name'=>'ESR',
+                    'normal'=>'Newborn: 0 - 2 mm/hr.  Female: 0 - 20 mm/hr.<br>Children: 3 - 13 mm/hr.   Male: 0 - 10 mm/hr.',
+                    'result'=>'&nbsp;',
+                    'unit'=>'mm/hr.'
+                ],
+                [
+                    'name'=>'Stabs',
+                    'adult'=>'0.01 - 0.04','zerotosix'=>'','sixtotwelve'=>'',
+                    'result'=>'&nbsp;',
+                    'header'=>'WBC Differential Count',
+                    'unit'=>''
+                ],
+                [
+                    'name'=>'Segmenters',
+                    'adult'=>'0.45 - 0.65','zerotosix'=>'0.28 - 0.38','sixtotwelve'=>'0.31 - 0.40',
+                    'result'=>'&nbsp;',
+                    'unit'=>''
+                ],
+                [
+                    'name'=>'Lymphocytes',
+                    'adult'=>'0.20 - 0.35','zerotosix'=>'0.62 - 0.72','sixtotwelve'=>'0.60 - 0.69',
+                    'result'=>'&nbsp;',
+                    'unit'=>''
+                ],
+                [
+                    'name'=>'Monocytes',
+                    'adult'=>'0.02 - 0.06','zerotosix'=>'','sixtotwelve'=>'',
+                    'result'=>'&nbsp;',
+                    'unit'=>''
+                ],
+                [
+                    'name'=>'Eosinophils',
+                    'adult'=>'0.02 - 0.04','zerotosix'=>'','sixtotwelve'=>'',
+                    'result'=>'&nbsp;',
+                    'unit'=>''
+                ],
+                [
+                    'name'=>'Basophils',
+                    'adult'=>'0.00 - 0.01','zerotosix'=>'','sixtotwelve'=>'',
+                    'result'=>'&nbsp;',
+                    'unit'=>''
+                ],
+                [
+                    'name'=>'Clotting time',
+                    'normal'=>'2 - 6 minutes',
+                    'result'=>'&nbsp;',
+                    'unit'=>'minutes'
+                ],
+                [
+                    'name'=>'Bleeding',
+                    'normal'=>'1 - 3 minutes',
+                    'result'=>'&nbsp;',
+                    'unit'=>'minutes',
+                ],
+                [
+                    'name'=>'Clot Observation time',
+                    'normal'=>'5 - 15 minutes',
+                    'unit'=>'minutes',
+                    'result'=>'&nbsp;'
+                ],
+                [
+                    'name'=>'Blood Type',
+                    'result'=>'&nbsp;',
+                    'unit'=>''
+                ]
             ]
         ];
     }
@@ -98,7 +209,9 @@ class LabTestBlueprint extends Model
         return [
             'blood chemistry'=>'Blood Chemistry',
             'cytology'=>'Cytology Report',
-            'fecalysis'=>'Fecalysis'
+            'fecalysis'=>'Fecalysis',
+            'ecg'=>'Electrocardiogram',
+            'hematology'=>'Hematology'
         ];
     }
 }
