@@ -24,7 +24,7 @@
     <tr>
         <th>{{$data[$i]->name}}</th>
         <td>{!! $data[$i]->normal !!}</td>
-        <td>{{$data[$i]->result}}</td>
+        <td>{{$data[$i]->result}}{{$data[$i]->unit}}</td>
     </tr>
 
     @endfor
@@ -47,7 +47,7 @@
         <td>{{$data[$i]->adult}}</td>
         <td>{{$data[$i]->zerotosix}}</td>
         <td>{{$data[$i]->sixtotwelve}}</td>
-        <td>{{$data[$i]->result}}</td>
+        <td>{{$data[$i]->result}} {{$data[$i]->unit}}</td>
     </tr>
 
     @endfor
@@ -59,7 +59,7 @@
     <tr>
         <th>{{$data[$i]->name}}</th>
         <td colspan="3" class="text-center">{{$data[$i]->normal}}</td>
-        <td>{{$data[$i]->result}}</td>
+        <td>{{$data[$i]->result}} {{$data[$i]->unit}}</td>
     </tr>
 
     @endfor

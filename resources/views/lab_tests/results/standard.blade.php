@@ -20,7 +20,7 @@
         <tr>
             <td>{{$item->name}}</td>
             <td>{{$item->normal}}</td>
-            <td>{{$item->result}}</td>
+            <td>{{$item->result}} {{$item->unit}}</td>
         </tr>
 
         @endforeach

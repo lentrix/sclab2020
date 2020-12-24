@@ -201,7 +201,16 @@ class LabTestBlueprint extends Model
                     'result'=>'&nbsp;',
                     'unit'=>''
                 ]
-            ]
+            ],
+            "microbiology" => [
+                ['view'=>'microbiology'],
+                ['name'=>'Examination Desired', 'result'=>'&nbsp;'],
+                ['name'=>'Remarks', 'result'=>'&nbsp;']
+            ],
+            "semenal" => [
+                ['view'=>'semenal'],
+
+            ],
         ];
     }
 
@@ -211,7 +220,8 @@ class LabTestBlueprint extends Model
             'cytology'=>'Cytology Report',
             'fecalysis'=>'Fecalysis',
             'ecg'=>'Electrocardiogram',
-            'hematology'=>'Hematology'
+            'hematology'=>'Hematology',
+            'microbiology'=>'Microbiology'
         ];
     }
 }
