@@ -1,8 +1,13 @@
 <h1 class="d-print-none">
     View Laboratory Test
+    @if($labtest->status=="available")
     <button class="btn btn-secondary float-right" onclick="window.print()">
         Print Result
     </button>
+    @endif
+    @if($labtest->status!="available" && auth()->user()->role=="medtech")
+    <a href='{{url("labtests/edit-results/$labtest->id")}}' class="btn btn-info float-right">Edit Results</a>
+    @endif
 </h1>
 <br>
 <div style="color: #e36602; text-align:center">

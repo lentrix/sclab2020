@@ -209,7 +209,25 @@ class LabTestBlueprint extends Model
             ],
             "semenal" => [
                 ['view'=>'semenal'],
-
+                ['name'=>'Volume', 'unit'=>'ml', 'header'=>'MACROSCOPING EXAMINATION', 'result'=>'&nbsp;'],
+                ['name'=>'Color', 'unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'PH', 'unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Specific Gravity', 'unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'30 Mins', 'unit'=>'%', 'result'=>'&nbsp;', 'header'=>'LIQUEFACTION TIME'],
+                ['name'=>'1 hour', 'unit'=>'%', 'result'=>'&nbsp;'],
+                ['name'=>'PUS Cells', 'unit'=>'/hpf', 'result'=>'&nbsp;','header'=>'MICROSCOPIC EXAMINATION'],
+                ['name'=>'Red Blood Cells', 'unit'=>'/hpf', 'result'=>'&nbsp;'],
+                ['name'=>'Motility', 'unit'=>'%', 'result'=>'&nbsp;'],
+                ['name'=>'Progression', 'unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Sperm Count', 'unit'=>'/cumm', 'result'=>'&nbsp;'],
+                ['name'=>'Normal Cells', 'unit'=>'%', 'result'=>'&nbsp;', 'header'=>'SPERM MORPHOLOGY'],
+                ['name'=>'Abnormal Cells', 'unit'=>'%', 'result'=>'&nbsp;'],
+                ['name'=>'Double Head', 'unit'=>'%', 'result'=>'&nbsp;'],
+                ['name'=>'Pin Head', 'unit'=>'%', 'result'=>'&nbsp;'],
+                ['name'=>'Ballon Head', 'unit'=>'%', 'result'=>'&nbsp;'],
+                ['name'=>'Double Tail', 'unit'=>'%', 'result'=>'&nbsp;'],
+                ['name'=>'Short Tail', 'unit'=>'%', 'result'=>'&nbsp;'],
+                ['name'=>'Long Tail', 'unit'=>'%', 'result'=>'&nbsp;'],
             ],
         ];
     }
@@ -221,7 +239,8 @@ class LabTestBlueprint extends Model
             'fecalysis'=>'Fecalysis',
             'ecg'=>'Electrocardiogram',
             'hematology'=>'Hematology',
-            'microbiology'=>'Microbiology'
+            'microbiology'=>'Microbiology',
+            'semenal' => 'Semenal Analysis',
         ];
     }
 }
