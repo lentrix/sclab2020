@@ -10,14 +10,14 @@
 
     <br>
 
-    <h3>Examination Desired: {{$data[1]->result}}</h3>
+    <h3>Examination Desired: {!! $data[1]->result !!}</h3>
     <br>
 
     <div class="card">
         <div class="card-body">
             <h3>Remarks:</h3>
             <p>
-                {{$data[2]->result}}
+                {!! $data[2]->result !!}
             </p>
         </div>
     </div>

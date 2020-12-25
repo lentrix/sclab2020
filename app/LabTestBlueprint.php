@@ -203,7 +203,7 @@ class LabTestBlueprint extends Model
                 ]
             ],
             "microbiology" => [
-                ['view'=>'microbiology'],
+                ['view'=>'duo'],
                 ['name'=>'Examination Desired', 'result'=>'&nbsp;'],
                 ['name'=>'Remarks', 'result'=>'&nbsp;']
             ],
@@ -260,6 +260,11 @@ class LabTestBlueprint extends Model
                 ['name'=>'Leucine Crystals','unit'=>'', 'result'=>'&nbsp;'],
                 ['name'=>'Other findings','unit'=>'', 'result'=>'&nbsp;'],
             ],
+            "serology" => [
+                ['view'=>'duo'],
+                ['name'=>'Examination Desired', 'result'=>'&nbsp;'],
+                ['name'=>'Result', 'result'=>'&nbsp;'],
+            ],
         ];
     }
 
@@ -272,7 +277,8 @@ class LabTestBlueprint extends Model
             'hematology'=>'Hematology',
             'microbiology'=>'Microbiology',
             'semenal' => 'Semenal Analysis',
-            'urinalysis' => 'Urinalysis'
+            'urinalysis' => 'Urinalysis',
+            'serology' => 'Serology'
         ];
     }
 }
