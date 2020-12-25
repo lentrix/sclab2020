@@ -25,7 +25,7 @@
 <br>
 <table class="table table-bordered result-table">
     <tr>
-        <th>Patient Name:</th><td colspan="3">{{$labtest->patient->name}}</td>
+        <th style="width: 170px">Patient Name:</th><td colspan="3">{{$labtest->patient->name}}</td>
         <th>Physician:</th><td>{{$labtest->physician}}</td>
     </tr>
     <tr>

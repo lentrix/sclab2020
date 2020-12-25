@@ -229,6 +229,37 @@ class LabTestBlueprint extends Model
                 ['name'=>'Short Tail', 'unit'=>'%', 'result'=>'&nbsp;'],
                 ['name'=>'Long Tail', 'unit'=>'%', 'result'=>'&nbsp;'],
             ],
+            "urinalysis" => [
+                ['view'=>'standard'],
+                ['name'=>'Color','unit'=>'', 'header'=>'Gross Examination', 'result'=>'&nbsp;'],
+                ['name'=>'Transparency','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Pus Cells','unit'=>'/hpf', 'header'=>'Microscopic Examination', 'result'=>'&nbsp;'],
+                ['name'=>'RBC','unit'=>'/hpf', 'result'=>'&nbsp;'],
+                ['name'=>'Epithelia Cells','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Yeast Cells','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Cylindroids','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Mucus Threads','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Bacteria','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'PH','unit'=>'','header'=>'Chemical Examination', 'result'=>'&nbsp;'],
+                ['name'=>'Spec. Gravity','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Protein','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Guclose','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Coarsely Granular','header'=>'Casts', 'unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Finely Granular','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Hyaline','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Pus Cast','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Waxy Cast','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'WBC Cast','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Ammonium Biurates','header'=>'Crystals', 'unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Amorphous Urates','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Amorphous Phosphates','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Calcium Oxalates','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Triple Phosphates','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Uric Acid','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Cholesterole','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Leucine Crystals','unit'=>'', 'result'=>'&nbsp;'],
+                ['name'=>'Other findings','unit'=>'', 'result'=>'&nbsp;'],
+            ],
         ];
     }
 
@@ -241,6 +272,7 @@ class LabTestBlueprint extends Model
             'hematology'=>'Hematology',
             'microbiology'=>'Microbiology',
             'semenal' => 'Semenal Analysis',
+            'urinalysis' => 'Urinalysis'
         ];
     }
 }
